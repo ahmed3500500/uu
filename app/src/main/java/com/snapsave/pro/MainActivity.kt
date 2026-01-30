@@ -46,6 +46,11 @@ import java.util.UUID
 import android.content.Intent
 import androidx.compose.material.icons.filled.Share
 import kotlinx.coroutines.launch
+import android.app.DownloadManager
+import android.net.Uri
+import android.content.BroadcastReceiver
+import android.content.IntentFilter
+import android.os.Build
 
 class MainActivity : ComponentActivity() {
 
@@ -320,29 +325,65 @@ fun MainScreen(showAd: () -> Unit, shareApp: () -> Unit) {
 
 fun downloadVideo(context: Context, url: String, callback: (Boolean, File?) -> Unit) {
     try {
-        // Download to private cache directory first
-        val dirPath = context.cacheDir.absolutePath
+        val request = DownloadManager.Request(Uri.parse(url))
+            .setTitle("Downloading Video")
+            .setDescription("Downloading video from SnapSave Pro")
+            .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+            .setAllowedOverMetered(true)
+            .setAllowedOverRoaming(true)
+        
+        // Save to public Downloads directory directly (Scoped Storage friendly)
         val fileName = "video_${System.currentTimeMillis()}.mp4"
-        
-        NotificationHelper.showProgressNotification(context, 0)
-        
-        PRDownloader.download(url, dirPath, fileName)
-            .build()
-            .setOnProgressListener { progress ->
-                val percent = (progress.currentBytes * 100 / progress.totalBytes).toInt()
-                NotificationHelper.showProgressNotification(context, percent)
-            }
-            .start(object : OnDownloadListener {
-                override fun onDownloadComplete() {
-                    NotificationHelper.showCompletionNotification(context, true, "Download finished successfully")
-                    callback(true, File(dirPath, fileName))
-                }
+        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, fileName)
 
-                override fun onError(error: Error?) {
-                    NotificationHelper.showCompletionNotification(context, false, "Download failed")
+        val downloadManager = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+        val downloadId = downloadManager.enqueue(request)
+
+        // Register receiver to listen for completion
+        val onComplete = object : BroadcastReceiver() {
+            override fun onReceive(ctxt: Context, intent: Intent) {
+                try {
+                    val id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
+                    if (downloadId == id) {
+                        // Check if successful
+                        val query = DownloadManager.Query().setFilterById(downloadId)
+                        val cursor = downloadManager.query(query)
+                        if (cursor.moveToFirst()) {
+                            val statusIndex = cursor.getColumnIndex(DownloadManager.COLUMN_STATUS)
+                            if (statusIndex >= 0) {
+                                val status = cursor.getInt(statusIndex)
+                                if (status == DownloadManager.STATUS_SUCCESSFUL) {
+                                    // File is in Downloads folder
+                                    val file = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName)
+                                    callback(true, file)
+                                } else {
+                                    callback(false, null)
+                                }
+                            } else {
+                                callback(false, null)
+                            }
+                        } else {
+                            callback(false, null)
+                        }
+                        cursor.close()
+                        context.unregisterReceiver(this)
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
                     callback(false, null)
+                    try { context.unregisterReceiver(this) } catch(e: Exception) {}
                 }
-            })
+            }
+        }
+        
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            context.registerReceiver(onComplete, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE), Context.RECEIVER_EXPORTED)
+        } else {
+            context.registerReceiver(onComplete, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
+        }
+        
+        Toast.makeText(context, "Download Started...", Toast.LENGTH_SHORT).show()
+
     } catch (e: Exception) {
         e.printStackTrace()
         Toast.makeText(context, "Download Init Error: ${e.message}", Toast.LENGTH_LONG).show()
