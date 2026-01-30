@@ -45,6 +45,7 @@ import java.io.File
 import java.util.UUID
 import android.content.Intent
 import androidx.compose.material.icons.filled.Share
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
 
@@ -316,7 +317,7 @@ fun downloadVideo(context: Context, url: String, callback: (Boolean, File?) -> U
     
     PRDownloader.download(url, dirPath, fileName)
         .build()
-        .setOnProgressUpdateListener { progress ->
+        .setOnProgressListener { progress ->
             val percent = (progress.currentBytes * 100 / progress.totalBytes).toInt()
             NotificationHelper.showProgressNotification(context, percent)
         }
