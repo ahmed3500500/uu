@@ -3,11 +3,32 @@ package com.snapsave.pro
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.jsoup.Jsoup
+import com.yausername.youtubedl_android.YoutubeDL
+import com.yausername.youtubedl_android.YoutubeDLRequest
 
 object VideoExtractor {
 
     suspend fun extractVideoUrl(originalUrl: String): String? {
         return withContext(Dispatchers.IO) {
+            // 1. Try youtubedl-android (The "Radical Solution" for all sites)
+            try {
+                val request = YoutubeDLRequest(originalUrl)
+                // Get the best single file video/audio (avoiding DASH/HLS manifests if possible for simple download)
+                // or just "best". 'best' usually returns the best quality.
+                // For direct playback/download without ffmpeg merge on client, we might want 'best[ext=mp4]/best'
+                request.addOption("-f", "b/best") 
+                // We don't want to download, just get info
+                // getInfo will fetch the URL.
+                
+                val streamInfo = YoutubeDL.getInstance().getInfo(request)
+                if (!streamInfo.url.isNullOrEmpty()) {
+                    return@withContext streamInfo.url
+                }
+            } catch (e: Exception) {
+                // YoutubeDL failed, fall back to Jsoup
+                e.printStackTrace()
+            }
+
             try {
                 // Check if it's already a direct link
                 if (originalUrl.endsWith(".mp4", ignoreCase = true) || 

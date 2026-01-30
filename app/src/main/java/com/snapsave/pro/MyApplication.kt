@@ -10,11 +10,19 @@ import java.io.StringWriter
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import com.yausername.youtubedl_android.YoutubeDL
+import com.yausername.youtubedl_android.YoutubeDLException
 
 class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        try {
+            YoutubeDL.getInstance().init(this)
+        } catch (e: YoutubeDLException) {
+            Log.e("MyApplication", "failed to initialize youtubedl-android", e)
+        }
 
         // Setup Global Crash Handler
         val defaultHandler = Thread.getDefaultUncaughtExceptionHandler()
