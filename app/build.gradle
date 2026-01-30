@@ -18,6 +18,11 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+        ndk {
+            // Only include ARM architectures for physical devices to reduce APK size
+            // This removes x86/x86_64 (emulator) libraries which are very large
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+        }
     }
 
     buildTypes {
