@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:ns١="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
     <string msgid="6128938260108474660" name="bottom_sheet_collapse_description">"Kunja safu ya chini"</string>
     <string msgid="1918297411568599192" name="bottom_sheet_dismiss_description">"Ondoa safu ya chini"</string>
     <string msgid="7772321844937772780" name="bottom_sheet_drag_handle_description">"Aikoni ya buruta"</string>
@@ -107,7 +107,7 @@
     <string msgid="7189888345201419934" name="suggestions_available">"Mapendekezo yaliyo hapa chini"</string>
     <string msgid="2561197295334830845" name="switch_role">"Swichi"</string>
     <string msgid="1672349317127674378" name="tab">"Kichupo"</string>
-    <string msgid="5946805113151406391" name="template_percent">"Asilimia <ns١:g id="PERCENTAGE">%1$d</ns١:g>."</string>
+    <string msgid="5946805113151406391" name="template_percent">"Asilimia <ns1:g id="PERCENTAGE">%1$d</ns1:g>."</string>
     <string msgid="5096144640014509074" name="time_picker_am">"Asubuhi"</string>
     <string msgid="7241191970823415723" name="time_picker_hour">"Saa"</string>
     <string msgid="4149641012513526783" name="time_picker_hour_24h_suffix">"Saa %1$d"</string>

@@ -199,7 +199,21 @@ fun MainScreen(showAd: () -> Unit, shareApp: () -> Unit) {
                 modifier = Modifier.padding(bottom = 32.dp)
             )
 
-            // ... TextField ...
+            OutlinedTextField(
+                value = url,
+                onValueChange = { url = it },
+                label = { Text("Enter Video Link") },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 16.dp),
+                singleLine = true,
+                leadingIcon = { Icon(Icons.Default.ContentPaste, contentDescription = null) },
+                shape = RoundedCornerShape(12.dp),
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = MaterialTheme.colorScheme.primary,
+                    unfocusedBorderColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
+                )
+            )
         
             if (isProcessing) {
                 CircularProgressIndicator()

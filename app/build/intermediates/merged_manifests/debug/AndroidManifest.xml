@@ -59,7 +59,8 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@drawable/ic_launcher_background"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SnapSavePro" >
+        android:theme="@style/Theme.SnapSavePro"
+        android:usesCleartextTraffic="true" >
 
         <!-- AdMob App ID (Test ID) -->
         <meta-data

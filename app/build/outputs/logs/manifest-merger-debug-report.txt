@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:2:1-41:12
+ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:2:1-42:12
 MERGED from [androidx.compose.material3:material3:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-3\b2d1baf4c18167c342fc25adf09025e2\transformed\jetified-material3-1.1.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.0] C:\Users\Administrator\.gradle\caches\transforms-3\d44bbdc403bff12aa55e2d335143b401\transformed\jetified-foundation-layout-release\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.foundation:foundation-android:1.6.0] C:\Users\Administrator\.gradle\caches\transforms-3\39df1588c105607213a11ebe75f3ef6e\transformed\jetified-foundation-release\AndroidManifest.xml:2:1-7:12
@@ -132,8 +132,8 @@ ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:9
 	android:name
 		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:9:22-74
 application
-ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:12:5-39:19
-INJECTED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:12:5-39:19
+ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:12:5-40:19
+INJECTED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:12:5-40:19
 MERGED from [androidx.compose.ui:ui-tooling-android:1.6.0] C:\Users\Administrator\.gradle\caches\transforms-3\16b504588e12882162d1c6fdd213ddd8\transformed\jetified-ui-tooling-release\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.compose.ui:ui-tooling-android:1.6.0] C:\Users\Administrator\.gradle\caches\transforms-3\16b504588e12882162d1c6fdd213ddd8\transformed\jetified-ui-tooling-release\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.compose.ui:ui-test-manifest:1.6.0] C:\Users\Administrator\.gradle\caches\transforms-3\9feb5e9bacda5d00333dcd760555ab30\transformed\jetified-ui-test-manifest-1.6.0\AndroidManifest.xml:22:5-26:19
@@ -187,39 +187,41 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Administrator\.gra
 	android:roundIcon
 		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:18:9-61
 	tools:targetApi
-		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:22:9-29
+		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:23:9-29
 	android:icon
 		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:16:9-56
 	android:allowBackup
 		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:13:9-35
 	android:theme
-		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:21:9-49
+		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:22:9-49
 	android:dataExtractionRules
 		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:14:9-65
+	android:usesCleartextTraffic
+		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:21:9-44
 meta-data#com.google.android.gms.ads.APPLICATION_ID
-ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:25:9-27:69
+ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:26:9-28:69
 	android:value
-		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:27:13-67
+		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:28:13-67
 	android:name
-		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:26:13-69
+		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:27:13-69
 activity#com.snapsave.pro.MainActivity
-ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:29:9-38:20
+ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:30:9-39:20
 	android:exported
-		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:31:13-36
+		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:32:13-36
 	android:theme
-		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:32:13-53
+		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:33:13-53
 	android:name
-		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:30:13-41
+		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:31:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:33:13-37:29
+ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:34:13-38:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:34:17-69
+ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:35:17-69
 	android:name
-		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:34:25-66
+		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:35:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:36:17-77
+ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:37:17-77
 	android:name
-		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:36:27-74
+		ADDED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml:37:27-74
 uses-sdk
 INJECTED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Administrator\Desktop\apk\app\src\main\AndroidManifest.xml

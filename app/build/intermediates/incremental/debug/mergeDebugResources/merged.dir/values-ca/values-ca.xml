@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:ns١="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
     <string msgid="6128938260108474660" name="bottom_sheet_collapse_description">"Replega el full inferior"</string>
     <string msgid="1918297411568599192" name="bottom_sheet_dismiss_description">"Ignora el full inferior"</string>
     <string msgid="7772321844937772780" name="bottom_sheet_drag_handle_description">"Ansa per arrossegar"</string>
@@ -107,7 +107,7 @@
     <string msgid="7189888345201419934" name="suggestions_available">"Suggeriments a continuació"</string>
     <string msgid="2561197295334830845" name="switch_role">"Interruptor"</string>
     <string msgid="1672349317127674378" name="tab">"Pestanya"</string>
-    <string msgid="5946805113151406391" name="template_percent">"<ns١:g id="PERCENTAGE">%1$d</ns١:g> per cent"</string>
+    <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g> per cent"</string>
     <string msgid="5096144640014509074" name="time_picker_am">"AM"</string>
     <string msgid="7241191970823415723" name="time_picker_hour">"Hora"</string>
     <string msgid="4149641012513526783" name="time_picker_hour_24h_suffix">"%1$d hores"</string>

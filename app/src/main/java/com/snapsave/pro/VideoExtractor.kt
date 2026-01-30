@@ -9,6 +9,13 @@ object VideoExtractor {
     suspend fun extractVideoUrl(originalUrl: String): String? {
         return withContext(Dispatchers.IO) {
             try {
+                // Check if it's already a direct link
+                if (originalUrl.endsWith(".mp4", ignoreCase = true) || 
+                    originalUrl.endsWith(".mkv", ignoreCase = true) ||
+                    originalUrl.endsWith(".webm", ignoreCase = true)) {
+                    return@withContext originalUrl
+                }
+
                 // Determine platform based on URL (Simple check)
                 // Note: Real-world extraction often requires handling cookies, headers, and specific APIs.
                 // This is a basic generic extractor using OpenGraph tags which works for many public videos.
@@ -18,6 +25,7 @@ object VideoExtractor {
                 val doc = Jsoup.connect(originalUrl)
                     .userAgent(userAgent)
                     .timeout(10000)
+                    .ignoreContentType(true) // Important: Allow parsing non-standard content types
                     .get()
 
                 // Try to find og:video
