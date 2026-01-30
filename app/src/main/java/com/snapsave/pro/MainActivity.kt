@@ -319,29 +319,35 @@ fun MainScreen(showAd: () -> Unit, shareApp: () -> Unit) {
 }
 
 fun downloadVideo(context: Context, url: String, callback: (Boolean, File?) -> Unit) {
-    // Download to private cache directory first
-    val dirPath = context.cacheDir.absolutePath
-    val fileName = "video_${System.currentTimeMillis()}.mp4"
-    
-    NotificationHelper.showProgressNotification(context, 0)
-    
-    PRDownloader.download(url, dirPath, fileName)
-        .build()
-        .setOnProgressListener { progress ->
-            val percent = (progress.currentBytes * 100 / progress.totalBytes).toInt()
-            NotificationHelper.showProgressNotification(context, percent)
-        }
-        .start(object : OnDownloadListener {
-            override fun onDownloadComplete() {
-                NotificationHelper.showCompletionNotification(context, true, "Download finished successfully")
-                callback(true, File(dirPath, fileName))
+    try {
+        // Download to private cache directory first
+        val dirPath = context.cacheDir.absolutePath
+        val fileName = "video_${System.currentTimeMillis()}.mp4"
+        
+        NotificationHelper.showProgressNotification(context, 0)
+        
+        PRDownloader.download(url, dirPath, fileName)
+            .build()
+            .setOnProgressListener { progress ->
+                val percent = (progress.currentBytes * 100 / progress.totalBytes).toInt()
+                NotificationHelper.showProgressNotification(context, percent)
             }
+            .start(object : OnDownloadListener {
+                override fun onDownloadComplete() {
+                    NotificationHelper.showCompletionNotification(context, true, "Download finished successfully")
+                    callback(true, File(dirPath, fileName))
+                }
 
-            override fun onError(error: Error?) {
-                NotificationHelper.showCompletionNotification(context, false, "Download failed")
-                callback(false, null)
-            }
-        })
+                override fun onError(error: Error?) {
+                    NotificationHelper.showCompletionNotification(context, false, "Download failed")
+                    callback(false, null)
+                }
+            })
+    } catch (e: Exception) {
+        e.printStackTrace()
+        Toast.makeText(context, "Download Init Error: ${e.message}", Toast.LENGTH_LONG).show()
+        callback(false, null)
+    }
 }
 
 fun convertVideoToMp3(inputFile: File, callback: (Boolean, File?) -> Unit) {
