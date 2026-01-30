@@ -63,8 +63,8 @@ dependencies {
     // PRDownloader - using the active fork on JitPack (v1.0.2 fix)
     implementation 'com.github.amitshekhariitbhu:PRDownloader:1.0.2'
 
-    // FFmpeg Kit - using LTS version (4.5.1-1) which is available on Maven Central
-    implementation 'com.arthenica:ffmpeg-kit-full:4.5.1-1'
+    // FFmpeg Kit - using community fork (supports Android 16KB pages) as original is retired
+    implementation 'com.moizhassan.ffmpeg:ffmpeg-kit-16kb:6.1.1'
 
     // Google AdMob
     implementation 'com.google.android.gms:play-services-ads:22.6.0'
