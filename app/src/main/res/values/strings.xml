@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SnapSave Pro</string>
+    <string name="download_button">Download Video</string>
+    <string name="convert_button">Convert to MP3</string>
+    <string name="paste_hint">Paste Link Here...</string>
+    <string name="downloading">Downloading...</string>
+    <string name="converting">Converting...</string>
+    <string name="success">Success!</string>
+    <string name="error">Error occurred</string>
+    <string name="permission_required">Storage permission required</string>
+</resources>
