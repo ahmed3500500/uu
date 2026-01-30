@@ -48,6 +48,7 @@
 
     <uses-permission android:name="com.snapsave.pro.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> <!-- For Android 13+ notification permission for downloads might be nice but keeping it simple as requested -->
     <application
+        android:name="com.snapsave.pro.MyApplication"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:dataExtractionRules="@xml/data_extraction_rules"

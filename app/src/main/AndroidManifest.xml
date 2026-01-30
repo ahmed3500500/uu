@@ -10,6 +10,7 @@
     <!-- For Android 13+ notification permission for downloads might be nice but keeping it simple as requested -->
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
