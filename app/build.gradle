@@ -58,7 +58,7 @@ dependencies {
 
     implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
-    implementation 'androidx.activity:activity-compose:1.8.2'
+    implementation 'androidx.activity:activity-compose:1.7.2'
     implementation platform('androidx.compose:compose-bom:2023.08.00')
     implementation 'androidx.compose.ui:ui'
     implementation 'androidx.compose.ui:ui-graphics'
@@ -66,10 +66,7 @@ dependencies {
     implementation 'androidx.compose.material3:material3'
     
     // Icons
-    implementation "androidx.compose.material:material-icons-extended:1.6.0"
-
-    // PRDownloader - using the active fork on JitPack (v1.0.2 fix)
-    implementation 'com.github.amitshekhariitbhu:PRDownloader:1.0.2'
+    implementation "androidx.compose.material:material-icons-extended:1.5.0"
 
     // FFmpeg Kit - using community fork (supports Android 16KB pages) as original is retired
     implementation 'com.moizhassan.ffmpeg:ffmpeg-kit-16kb:6.0.0'
