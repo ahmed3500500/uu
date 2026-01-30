@@ -60,11 +60,11 @@ dependencies {
     // Icons
     implementation "androidx.compose.material:material-icons-extended:1.6.0"
 
-    // PRDownloader - using the active fork on JitPack since original is not available
-    implementation 'com.github.amitshekhariitbhu.PRDownloader:prdownloader:1.0.1'
+    // PRDownloader - using the active fork on JitPack
+    implementation 'com.github.amitshekhariitbhu:PRDownloader:1.0.1'
 
-    // FFmpeg Kit - using version 4.5.1 (stable)
-    implementation 'com.arthenica:ffmpeg-kit-full:4.5.1'
+    // FFmpeg Kit - using LTS version (4.5.1-1) which is available on Maven Central
+    implementation 'com.arthenica:ffmpeg-kit-full:4.5.1-1'
 
     // Google AdMob
     implementation 'com.google.android.gms:play-services-ads:22.6.0'
