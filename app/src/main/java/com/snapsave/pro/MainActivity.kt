@@ -139,10 +139,6 @@ fun SnapSaveProTheme(content: @Composable () -> Unit) {
     )
 }
 
-import kotlinx.coroutines.launch
-
-// ... imports remain the same ...
-
 @Composable
 fun MainScreen(showAd: () -> Unit, shareApp: () -> Unit) {
     val context = LocalContext.current
